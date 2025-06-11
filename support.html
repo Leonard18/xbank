@@ -20,9 +20,41 @@
         <main class="grid grid-cols-1 md:grid-cols-12 gap-10">
             <div class="lg:col-span-2 md:col-span-1 hidden md:block min-h-screen">
                 <div class="h-full md:overflow-y-hidden bg-black/90 flex flex-col p-5 text-gray-400 space-y-5">
-                    <h2 class="text-xl font-bold">Logo</h2>
-                    <a href="/" class="flex gap-2"><span class="lg:block md:hidden">Home</span> 1</a>
-                    <a href="/support.html" class="flex gap-2 text-white font-medium"><span class="lg:block md:hidden">Support</span> 5</a>
+                    <img src="images/logo.png" class="lg:w-10 w-9 h-auto block flex-none" alt="Logo">
+                    <div class="flex flex-col space-y-6 text-sm">
+                        <a href="/" class="flex gap-2">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                                </svg>
+                            </span>
+                            <span class="lg:block md:hidden">Home</span>
+                        </a>
+                        <a href="/support.html" class="flex gap-2 text-white font-medium">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                </svg>
+                            </span>
+                            <span class="lg:block md:hidden">Support</span>
+                        </a>
+                        <a href="/transfer.html" class="flex gap-2">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                                </svg>
+                            </span>
+                            <span class="lg:block md:hidden">Tranfer</span>
+                        </a>
+                        <a href="/account-transfer.html" class="flex gap-2">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </span>
+                            <span class="lg:block md:hidden">Account Tranfer</span>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="lg:col-span-10 md:col-span-11 md:pr-10 flex flex-col space-y-5">
@@ -142,8 +174,10 @@
         <div class="md:hidden block">
             <div class="fixed left-0 right-0 bottom-0 bg-black py-3 px-5 h-16">
                 <div class="w-full flex items-center justify-between text-gray-400 text-[10px] h-full">
-                    <a href="index.html">Accounts</a>
-                    <a href="support.html" class="text-white font-medium">Support 5</a>
+                    <a href="index.html">Home</a>
+                    <a href="support.html" class="text-white font-medium">Support</a>
+                    <a href="transfer.html">Transfer</a>
+                    <a href="account-transfer.html">Account Transfer</a>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@
         <meta property="og:type" content="content" />
         <meta property="og:site_name" content="{{ config('app.name') }}" />
         <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-        <title>Pay & Transfer - XBank</title>
+        <title>Account Transfer - XBank</title>
     </head>
     <body class="bg-gray-50/90 text-gray-900 pb-20 md:px-0 px-3 relative overflow-x-hidden">
         <main class="grid grid-cols-1 md:grid-cols-12 gap-10">
@@ -38,7 +38,7 @@
                             </span>
                             <span class="lg:block md:hidden">Support</span>
                         </a>
-                        <a href="/transfer.html" class="flex gap-2 text-white font-medium">
+                        <a href="/transfer.html" class="flex gap-2">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
@@ -46,7 +46,7 @@
                             </span>
                             <span class="lg:block md:hidden">Tranfer</span>
                         </a>
-                        <a href="/account-transfer.html" class="flex gap-2">
+                        <a href="/account-transfer.html" class="flex gap-2 text-white font-medium">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
@@ -81,8 +81,8 @@
                      <div>
                          <div class="flex items-center justify-between gap-10 border-b border-b-gray-100 pb-3 py-3">
                              <div>
-                                 <h1 class="md:text-3xl text-2xl">Pay & Transfer</h1>
-                                 <p class="text-sm text-gray-500 pt-1">Send and receive funds with ease!</p>
+                                 <h1 class="md:text-3xl text-2xl">Account Transfer</h1>
+                                 <p class="text-sm text-gray-500 pt-1">Send between own accounts</p>
                              </div>
                              <!-- links section -->
                              <div class="md:flex hidden items-end justify-end space-x-6 text-gray-700">
@@ -107,55 +107,61 @@
                 <div>
                     <div class="bg-blue-100 w-full h-60 rounded-2xl"></div>
                     <div class="w-full md:px-0 px-2 md:-mt-48 -mt-56">
-                        <div class="bg-white shade-sm md:p-6 p-5 max-w-2xl rounded-2xl md:shade-sm space-y-10 m-auto">
-                            <p class="md:text-sm text-xs text-gray-600">Manage all your payments and transfers in one place. Send money locally or internationally, pay bills, and review your transaction history with ease and security.</p>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-                                <div class="flex flex-col items-center space-y-1 shade-sm bg-gray-50/80 hover:bg-gray-100 p-5 rounded-2xl">
-                                    <span class="w-12 h-12 rounded-full bg-blue-700 hover:bg-blue-800 text-white flex items-center justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                                            <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
-                                            <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clip-rule="evenodd" />
-                                        </svg>
-                                    </span>
-                                    <span class="text-xs md:text-sm">Transfer</span>
+                        <div class="bg-white shade-sm md:p-10 p-5 max-w-xl rounded-2xl md:shade-sm space-y-10 m-auto">
+                            <p class="md:text-sm text-xs text-gray-600">Easily move money between your own accounts. Use this page to securely transfer funds from one of your accounts to another—whether it's from your savings to checking or vice versa. Fast, simple, and instant.</p>
+                            
+
+                            <div class="">
+                                <h1 class="text-2xl font-bold mb-6">Transfer Between Your Accounts</h1>
+
+                                <form class=" space-y-5">
+                                <!-- From Account -->
+                                <div>
+                                    <label class="block font-medium mb-1" for="from_account">From Account</label>
+                                    <select id="from_account" name="from_account" required
+                                            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring focus:border-blue-400">
+                                    <option value="">Select source account</option>
+                                    <option value="savings">Savings - 0123456789</option>
+                                    <option value="checking">Checking - 9876543210</option>
+                                    </select>
                                 </div>
-                                <div class="flex flex-col items-center space-y-1 shade-sm bg-gray-50/80 hover:bg-gray-100 p-5 rounded-2xl">
-                                    <span class="w-12 h-12 rounded-full bg-blue-700 hover:bg-blue-800 text-white flex items-center justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                                            <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
-                                            <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clip-rule="evenodd" />
-                                        </svg>
-                                    </span>
-                                    <span class="text-xs md:text-sm">Pay Bills</span>
+
+                                <!-- To Account -->
+                                <div>
+                                    <label class="block font-medium mb-1" for="to_account">To Account</label>
+                                    <select id="to_account" name="to_account" required
+                                            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring focus:border-blue-400">
+                                    <option value="">Select destination account</option>
+                                    <option value="checking">Checking - 9876543210</option>
+                                    <option value="savings">Savings - 0123456789</option>
+                                    </select>
                                 </div>
-                                <div class="flex flex-col items-center space-y-1 shade-sm bg-gray-50/80 hover:bg-gray-100 p-5 rounded-2xl">
-                                    <span class="w-12 h-12 rounded-full bg-blue-700 hover:bg-blue-800 text-white flex items-center justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                                            <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
-                                            <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clip-rule="evenodd" />
-                                        </svg>
-                                    </span>
-                                    <span class="text-xs md:text-sm">Wire Money</span>
+
+                                <!-- Amount -->
+                                <div>
+                                    <label class="block font-medium mb-1" for="amount">Amount</label>
+                                    <input type="number" id="amount" name="amount" step="0.01" required
+                                        class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring focus:border-blue-400" />
                                 </div>
-                                <div class="flex flex-col items-center space-y-1 shade-sm bg-gray-50/80 hover:bg-gray-100 p-5 rounded-2xl">
-                                    <span class="w-12 h-12 rounded-full bg-blue-700 hover:bg-blue-800 text-white flex items-center justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                                            <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
-                                            <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clip-rule="evenodd" />
-                                        </svg>
-                                    </span>
-                                    <span class="text-xs md:text-sm">Pay Card</span>
+
+                                <!-- Note -->
+                                <div>
+                                    <label class="block font-medium mb-1" for="note">Note (optional)</label>
+                                    <textarea id="note" name="note" rows="3"
+                                            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring focus:border-blue-400"
+                                            placeholder="e.g., Monthly savings transfer"></textarea>
                                 </div>
-                                <div class="flex flex-col items-center space-y-1 shade-sm bg-gray-50/80 hover:bg-gray-100 p-5 rounded-2xl">
-                                    <span class="w-12 h-12 rounded-full bg-blue-700 hover:bg-blue-800 text-white flex items-center justify-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                                            <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
-                                            <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clip-rule="evenodd" />
-                                        </svg>
-                                    </span>
-                                    <span class="text-xs md:text-sm">Activity</span>
+
+                                <!-- Submit -->
+                                <div class="pt-4">
+                                    <button type="submit"
+                                            class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
+                                    Complete Transfer
+                                    </button>
                                 </div>
+                                </form>
                             </div>
+
                         </div>
                     </div>
                 <!-- end of content section -->
@@ -165,10 +171,10 @@
         <div class="md:hidden block">
             <div class="fixed left-0 right-0 bottom-0 bg-black py-3 px-5 h-16">
                 <div class="w-full flex items-center justify-between text-gray-400 text-[10px] h-full">
-                    <a href="index.html">Accounts</a>
-                    <a href="support.html">Support</a>
-                    <a href="transfer.html" class="text-white font-medium">Transfer</a>
-                    <a href="account-transfer.html">Account Transfer</a>
+                    <a href="index.html">Home</a>
+                    <a href="support.html">Support 5</a>
+                    <a href="transfer.html">Transfer</a>
+                    <a href="transfer.html" class="text-white font-medium">Account Transfer</a>
                 </div>
             </div>
         </div>
