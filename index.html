@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/alpinejs" defer></script>
+        <meta property="og:locale" content="en_US" />
+        <meta name="theme-color" content="#1E3A8A" />
+        <meta name="msapplication-navbutton-color" content="#1E3A8A" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#1E3A8A" />
+        <link rel="mask-icon" href="images/logo.png" color="#1E3A8A">
+        <link rel="apple-touch-icon" type="image/png" href="images/logo.png" />
+        <meta property="og:type" content="content" />
+        <meta property="og:site_name" content="{{ config('app.name') }}" />
+        <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+        <title>Dashboard - XBank</title>
+    </head>
+    <body class="bg-gray-50/50 text-gray-900  pb-20 md:px-0 px-4 relative overflow-x-hidden">
+        <main class="grid grid-cols-1 md:grid-cols-12 gap-10">
+            <div class="lg:col-span-2 md:col-span-1 hidden md:block h-full">
+                <div class="h-full md:overflow-y-hidden bg-black/90 flex flex-col lg:items-start md:items-center p-5 text-gray-400 space-y-5">
+                    <img src="images/logo.png" class="lg:w-10 w-9 h-auto block flex-none" alt="Logo">
+                    <div class="flex flex-col space-y-6 text-sm">
+                        <a href="/" class="flex gap-2 text-white font-medium">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                                </svg>
+                            </span>
+                            <span class="lg:block md:hidden">Home</span>
+                        </a>
+                        <a href="/support.html" class="flex gap-2">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                                </svg>
+                            </span>
+                            <span class="lg:block md:hidden">Support</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-10 md:col-span-11 md:pr-10 flex flex-col space-y-10">
+                <!-- top section -->
+                 <div>
+                    <div class="md:hidden block md:mb-0 mb-10">
+                        <div class="flex items-center justify-between pt-2 bg-black fixed left-0 right-0 top-0 w-full px-5 py-2 z-40">
+                            <h1 class="text-xl font-bold text-gray-200 hover:text-white">Xbank</h1>
+                            <div class="md:hidden flex items-end justify-end space-x-6">
+                                <span class="text-gray-400 hover:text-gray-200">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path fill-rule="evenodd" d="M5.25 9a6.75 6.75 0 0 1 13.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 0 1-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 1 1-7.48 0 24.585 24.585 0 0 1-4.831-1.244.75.75 0 0 1-.298-1.205A8.217 8.217 0 0 0 5.25 9.75V9Zm4.502 8.9a2.25 2.25 0 1 0 4.496 0 25.057 25.057 0 0 1-4.496 0Z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <span class="text-gray-400 hover:text-gray-200">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div>
+                         <div class="flex items-center justify-between gap-10 border-b border-b-gray-100 pb-3 py-3">
+                             <div>
+                                 <h1 class="md:text-4xl text-3xl">Good afternoon, <span class="font-medium">Leonard</span></h1>
+                                 <p class="text-sm text-gray-500 pt-1">Send and receive funds with ease!</p>
+                             </div>
+                             <!-- links section -->
+                             <div class="md:flex hidden items-end justify-end space-x-6 text-gray-700">
+                                 <span>
+                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+                                         <path fill-rule="evenodd" d="M5.25 9a6.75 6.75 0 0 1 13.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 0 1-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 1 1-7.48 0 24.585 24.585 0 0 1-4.831-1.244.75.75 0 0 1-.298-1.205A8.217 8.217 0 0 0 5.25 9.75V9Zm4.502 8.9a2.25 2.25 0 1 0 4.496 0 25.057 25.057 0 0 1-4.496 0Z" clip-rule="evenodd" />
+                                     </svg>
+                                 </span>
+                                 <span>
+                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+                                         <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" />
+                                     </svg>
+                                 </span>
+                             </div>
+                             <!-- end of links section -->
+                         </div>
+                     </div>
+                 </div>
+                <!-- end of top section -->
+
+                <!-- accont section -->
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between space-x-5">
+                        <div>
+                            <h1 class="text-base font-semibold">Business & personal accounts</h1>
+                            <div class="flex items-center justify-start space-x-1">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                    </svg>
+    
+                                </span>
+                                <p class="text-xs text-gray-500">Tap/click on an account to view it's details</p>
+                            </div>
+                        </div>
+                        <div class="text-sm font-bold items-center justify-end space-x-2 hidden">
+                            <span>1 USD = 0.86 GBP</span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="md:shadow-sm md:hover:shadow-md md:rounded-2xl md:bg-blue-50 md:px-5 md:py-8 md:border-b-0 border-b border-b-gray-200 pb-5">
+                        <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                            
+                            <div class="cursor-pointer border rounded-lg p-4 hover:shadow transition border-blue-600 bg-blue-600 text-white">
+                                <div x-data="{ showDetail: false, toggleShowDetail() { this.showDetail = !this.showDetail } }">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex justify-start space-x-3">
+                                            <div class="w-12 h-12 rounded-full flex items-center justify-center bg-white text-blue-600">
+                                                <p class="font-bold text-4xl">$</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-lg font-medium">...2394</p>
+                                                <p class="text-xs light-text">Business checking</p>
+                                            </div>
+                                        </div>
+                                        <div class="light-text flex flex-col justify-end space-y-3">
+                                            <p class="text-md font-semibold">
+                                                124,689,5950,499
+                                            </p>
+                                            <button @click.prevent="toggleShowDetail" class="outline-none border-none focus:outline-none focus:border-none text-xs self-end flex items-center justify-start space-x-1 hover:text-gray-500">
+                                                <span><span x-show="showDetail === false">View </span> <span x-show="showDetail === true" x-cloak>Hide</span> details</span>
+                                                <span x-show="showDetail === false" class="light-text">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                                                        <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z" clip-rule="evenodd" />
+                                                    </svg>
+                                                </span>
+                                                <span x-show="showDetail === true" x-cloak class="light-text">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                                                        <path fill-rule="evenodd" d="M11.47 7.72a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 0 1-1.06-1.06l7.5-7.5Z" clip-rule="evenodd" />
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div x-show="showDetail === true" x-cloak class="pt-5 ">
+                                        <div class="space-y-5 light-text">
+                                            <div class="text-xs space-y-2 border-y border-y-gray-200 py-3">
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Status</span>
+                                                    <span class="px-2 py-1 rounded-full {{ $acc->is_active === true ? 'text-green-500 bg-green-100' : 'text-red-500 bg-red-100' }}">active</span>
+                                                </div>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Current balance</span>
+                                                    <span class="font-medium">495932394945</span>
+                                                </div>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Account limit</span>
+                                                    <span class="font-medium">3495003030</span>
+                                                </div>
+                                            </div>
+                                            <div class="space-y-2 text-xs">
+                                                <p class="font-medium pb-2">Eligibility</p>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Local transfer</span>
+                                                    <span>
+                                                        <span class="text-green-500">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                                                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                                            </svg>
+                                                        </span>
+                                                    </span>                        
+                                                </div>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Wire transfer</span>
+                                                    <span class="text-green-500">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Transactions</span>
+                                                    <span class="text-green-500">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cursor-pointer border rounded-lg p-4 hover:shadow transition bg-white hover:bg-gray-50">
+                                <div x-data="{ showDetail: false, toggleShowDetail() { this.showDetail = !this.showDetail } }">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex justify-start space-x-3">
+                                            <div class="w-12 h-12 rounded-full flex items-center justify-center {{ $account->id === $acc->id ? 'bg-shade700 text-white' : 'bg-gray-50 text-lightblack' }}">
+                                                <p class="font-bold text-4xl">$</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-lg font-medium">...2394</p>
+                                                <p class="text-xs light-text">Business checking</p>
+                                            </div>
+                                        </div>
+                                        <div class="light-text flex flex-col justify-end space-y-3">
+                                            <p class="text-md font-semibold">
+                                                124,689,5950,499
+                                            </p>
+                                            <button @click.prevent="toggleShowDetail" class="outline-none border-none focus:outline-none focus:border-none text-xs self-end flex items-center justify-start space-x-1 hover:text-gray-500">
+                                                <span><span x-show="showDetail === false">View </span> <span x-show="showDetail === true" x-cloak>Hide</span> details</span>
+                                                <span x-show="showDetail === false" class="light-text">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                                                        <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z" clip-rule="evenodd" />
+                                                    </svg>
+                                                </span>
+                                                <span x-show="showDetail === true" x-cloak class="light-text">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                                                        <path fill-rule="evenodd" d="M11.47 7.72a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 0 1-1.06-1.06l7.5-7.5Z" clip-rule="evenodd" />
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div x-show="showDetail === true" x-cloak class="pt-5 ">
+                                        <div class="space-y-5 light-text">
+                                            <div class="text-xs space-y-2 border-y border-y-gray-200 py-3">
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Status</span>
+                                                    <span class="px-2 py-1 rounded-full {{ $acc->is_active === true ? 'text-green-500 bg-green-100' : 'text-red-500 bg-red-100' }}">active</span>
+                                                </div>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Current balance</span>
+                                                    <span class="font-medium">495932394945</span>
+                                                </div>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Account limit</span>
+                                                    <span class="font-medium">3495003030</span>
+                                                </div>
+                                            </div>
+                                            <div class="space-y-2 text-xs">
+                                                <p class="font-medium pb-2">Eligibility</p>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Local transfer</span>
+                                                    <span>
+                                                        <span class="text-green-500">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                                                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                                            </svg>
+                                                        </span>
+                                                    </span>                        
+                                                </div>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Wire transfer</span>
+                                                    <span class="text-green-500">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Transactions</span>
+                                                    <span class="text-green-500">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cursor-pointer border rounded-lg p-4 hover:shadow transition bg-white hover:bg-gray-50">
+                                <div x-data="{ showDetail: false, toggleShowDetail() { this.showDetail = !this.showDetail } }">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex justify-start space-x-3">
+                                            <div class="w-12 h-12 rounded-full flex items-center justify-center {{ $account->id === $acc->id ? 'bg-shade700 text-white' : 'bg-gray-50 text-lightblack' }}">
+                                                <p class="font-bold text-4xl">$</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-lg font-medium">2394</p>
+                                                <p class="text-xs light-text">Business checking</p>
+                                            </div>
+                                        </div>
+                                        <div class="light-text flex flex-col justify-end space-y-3">
+                                            <p class="text-md font-semibold">
+                                                124,689,5950,499
+                                            </p>
+                                            <button @click.prevent="toggleShowDetail" class="outline-none border-none focus:outline-none focus:border-none text-xs self-end flex items-center justify-start space-x-1 hover:text-gray-500">
+                                                <span><span x-show="showDetail === false">View </span> <span x-show="showDetail === true" x-cloak>Hide</span> details</span>
+                                                <span x-show="showDetail === false" class="light-text">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                                                        <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z" clip-rule="evenodd" />
+                                                    </svg>
+                                                </span>
+                                                <span x-show="showDetail === true" x-cloak class="light-text">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                                                        <path fill-rule="evenodd" d="M11.47 7.72a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 0 1-1.06-1.06l7.5-7.5Z" clip-rule="evenodd" />
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div x-show="showDetail === true" x-cloak class="pt-5 ">
+                                        <div class="space-y-5 light-text">
+                                            <div class="text-xs space-y-2 border-y border-y-gray-200 py-3">
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Status</span>
+                                                    <span class="px-2 py-1 rounded-full {{ $acc->is_active === true ? 'text-green-500 bg-green-100' : 'text-red-500 bg-red-100' }}">active</span>
+                                                </div>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Current balance</span>
+                                                    <span class="font-medium">495932394945</span>
+                                                </div>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Account limit</span>
+                                                    <span class="font-medium">3495003030</span>
+                                                </div>
+                                            </div>
+                                            <div class="space-y-2 text-xs">
+                                                <p class="font-medium pb-2">Eligibility</p>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Local transfer</span>
+                                                    <span>
+                                                        <span class="text-green-500">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                                                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                                            </svg>
+                                                        </span>
+                                                    </span>                        
+                                                </div>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Wire transfer</span>
+                                                    <span class="text-green-500">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <div class="flex item-center justify-between space-x-5">
+                                                    <span>Transactions</span>
+                                                    <span class="text-green-500">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                                                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of account section -->
+
+                <!-- quick links and extra information section -->
+                <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <!-- square section -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 border border-gray-200 rounded-2xl md:order-1 order-2">
+                        <div class="p-5 flex items-center justify-between gap-5 border border-t-0 border-l-0 border-gray-200 lg:rounded-tl-2xl hover:bg-white">
+                            <div>
+                                <h4 class="font-medium">Profile</h4>
+                                <p class="text-gray-500 text-xs">Manage your profile information</p>
+                            </div>
+                            <span class="cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="p-5 flex items-center justify-between gap-5 border border-t-0 border-l-0 border-gray-200 lg:rounded-tr-2xl hover:bg-white">
+                            <div>
+                                <h4 class="font-medium">Security</h4>
+                                <p class="text-gray-500 text-xs">Secure your account information</p>
+                            </div>
+                            <span class="cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="p-5 flex items-center justify-between gap-5 border border-t-0 border-l-0 border-gray-200 lg:rounded-bl-2xl hover:bg-white">
+                            <div>
+                                <h4 class="font-medium">Support</h4>
+                                <p class="text-gray-500 text-xs">Need help? Contact Support</p>
+                            </div>
+                            <span class="cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="p-5 flex items-center justify-between gap-5 border border-t-0 border-l-0 border-gray-200 rounded-br-2xl hover:bg-white">
+                            <div>
+                                <h4 class="font-medium">Settings</h4>
+                                <p class="text-gray-500 text-xs">Update your information</p>
+                            </div>
+                            <span class="cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- end of sqaure section -->
+
+                    <!-- quick links -->
+                    <div class="space-y-3 md:order-2 order-1">
+                        <div>
+                            <h4 class="font-medium text-xl">Quick links</h4>
+                            <p class="text-xs text-gray-500">Easily navigate your account</p>
+                        </div>
+                        <div class="bg-white shadow rounded-2xl p-6 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+                            <div class="flex flex-col items-center space-y-1">
+                                <span class="w-10 h-10 rounded-full bg-blue-700 hover:bg-blue-800 text-white flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
+                                        <path fill-rule="evenodd" d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <span class="md:text-sm text-xs">Card</span>
+                            </div>
+                            <div class="flex flex-col items-center space-y-1">
+                                <span class="w-10 h-10 rounded-full bg-blue-700 hover:bg-blue-800 text-white flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path fill-rule="evenodd" d="M5.25 9a6.75 6.75 0 0 1 13.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 0 1-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 1 1-7.48 0 24.585 24.585 0 0 1-4.831-1.244.75.75 0 0 1-.298-1.205A8.217 8.217 0 0 0 5.25 9.75V9Zm4.502 8.9a2.25 2.25 0 1 0 4.496 0 25.057 25.057 0 0 1-4.496 0Z" clip-rule="evenodd" />
+                                    </svg>
+
+                                </span>
+                                <span class="md:text-sm text-xs">Logs</span>
+                            </div>
+                            <div class="flex flex-col items-center space-y-1">
+                                <span class="w-10 h-10 rounded-full bg-blue-700 hover:bg-blue-800 text-white flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path fill-rule="evenodd" d="M1.5 6.375c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v3.026a.75.75 0 0 1-.375.65 2.249 2.249 0 0 0 0 3.898.75.75 0 0 1 .375.65v3.026c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 0 1 1.5 17.625v-3.026a.75.75 0 0 1 .374-.65 2.249 2.249 0 0 0 0-3.898.75.75 0 0 1-.374-.65V6.375Zm15-1.125a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0V6a.75.75 0 0 1 .75-.75Zm.75 4.5a.75.75 0 0 0-1.5 0v.75a.75.75 0 0 0 1.5 0v-.75Zm-.75 3a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0v-.75a.75.75 0 0 1 .75-.75Zm.75 4.5a.75.75 0 0 0-1.5 0V18a.75.75 0 0 0 1.5 0v-.75ZM6 12a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 0 1.5H6.75A.75.75 0 0 1 6 12Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <span class="md:text-sm text-xs">Accounts</span>
+                            </div>
+                            <div class="flex flex-col items-center space-y-1">
+                                <span class="w-10 h-10 rounded-full bg-blue-700 hover:bg-blue-800 text-white flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path fill-rule="evenodd" d="M15.97 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 1 1-1.06-1.06l3.22-3.22H7.5a.75.75 0 0 1 0-1.5h11.69l-3.22-3.22a.75.75 0 0 1 0-1.06Zm-7.94 9a.75.75 0 0 1 0 1.06l-3.22 3.22H16.5a.75.75 0 0 1 0 1.5H4.81l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <span class="md:text-sm text-xs">Transfer</span>
+                            </div>
+                            <div class="flex flex-col items-center space-y-1">
+                                <span class="w-10 h-10 rounded-full bg-blue-700 hover:bg-blue-800 text-white flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path fill-rule="evenodd" d="M4.755 10.059a7.5 7.5 0 0 1 12.548-3.364l1.903 1.903h-3.183a.75.75 0 1 0 0 1.5h4.992a.75.75 0 0 0 .75-.75V4.356a.75.75 0 0 0-1.5 0v3.18l-1.9-1.9A9 9 0 0 0 3.306 9.67a.75.75 0 1 0 1.45.388Zm15.408 3.352a.75.75 0 0 0-.919.53 7.5 7.5 0 0 1-12.548 3.364l-1.902-1.903h3.183a.75.75 0 0 0 0-1.5H2.984a.75.75 0 0 0-.75.75v4.992a.75.75 0 0 0 1.5 0v-3.18l1.9 1.9a9 9 0 0 0 15.059-4.035.75.75 0 0 0-.53-.918Z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <span class="md:text-sm text-xs">Exchange</span>
+                            </div>
+                            <div class="flex flex-col items-center space-y-1">
+                                <span class="w-10 h-10 rounded-full bg-blue-700 hover:bg-blue-800 text-white flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                        <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <span class="md:text-sm text-xs">Information</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of quick links -->
+                </div>
+                <!-- end of extra links and information section -->
+
+                <!-- information section -->
+                 <div class="space-y-3">
+                    <h3 class="font-medium text-xl">Helpful tips</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                         <div class="p-6 rounded-2xl bg-blue-50 hover:bg-blue-100 text-blue-600 border border-blue-600 flex items-center justify-between">
+                             <div class="flex justify-start space-x-2">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                 <div>
+                                    <h3 class="font-bold">Account information</h3>
+                                    <p class="text-sm">View your accounts and their respective information</p>
+                                    <span  class="mt-5 italic text-sm font-medium"><a href="#" class="">Learn more</a></span>
+                                 </div>
+                             </div>
+                             <span class="cursor-pointer">
+                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                 </svg>
+                             </span>
+                         </div>
+                         <div class="p-6 rounded-2xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-600 flex items-center justify-between">
+                             <div class="flex justify-start space-x-2">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                        <path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <h3 class="font-bold">Scam Alert!</h3>
+                                    <p class="text-sm">Be aware of investment fruad and avoid them. Learn how to protect your account.</p>
+                                    <span  class="mt-5 italic text-sm font-medium"><a href="#" class="">Learn more</a></span>
+                                </div>
+                             </div>
+                             <span class="cursor-pointer">
+                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                 </svg>
+                             </span>
+                         </div>
+                         <div class="p-6 rounded-2xl bg-green-50 hover:bg-green-100 text-green-600 border border-green-600 flex items-center justify-between">
+                             <div class="flex justify-start space-x-2">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                        <path d="M9.375 3a1.875 1.875 0 0 0 0 3.75h1.875v4.5H3.375A1.875 1.875 0 0 1 1.5 9.375v-.75c0-1.036.84-1.875 1.875-1.875h3.193A3.375 3.375 0 0 1 12 2.753a3.375 3.375 0 0 1 5.432 3.997h3.943c1.035 0 1.875.84 1.875 1.875v.75c0 1.036-.84 1.875-1.875 1.875H12.75v-4.5h1.875a1.875 1.875 0 1 0-1.875-1.875V6.75h-1.5V4.875C11.25 3.839 10.41 3 9.375 3ZM11.25 12.75H3v6.75a2.25 2.25 0 0 0 2.25 2.25h6v-9ZM12.75 12.75v9h6.75a2.25 2.25 0 0 0 2.25-2.25v-6.75h-9Z" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <h3 class="font-bold">Rewards & Points!</h3>
+                                    <p class="text-sm">Earn 50% bonus on when you transact a minimum of 5,000 GBP on savings account.</p>
+                                    <span  class="mt-5 italic text-sm font-medium"><a href="#" class="">Learn more</a></span>
+                                </div>
+                             </div>
+                             <span class="cursor-pointer">
+                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                     <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                 </svg>
+                             </span>
+                         </div>
+                     </div>
+                 </div>
+                <!-- end of information sectiom -->
+
+                <!-- transaction section -->
+                <div class="w-full pt-10">
+                    <div class="space-y-5">
+                        <div class="flex flex-row items-center justify-between space-x-5">
+                            <h3 class="font-medium text-xl">Recent Transactions</h3>
+                            <a href="#" class="flex items-center justify-end space-x-2">
+                                <span>See all</span>
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="flex flex-col space-y-3 bg-white">
+
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full bg-white border rounded">
+                                    <thead>
+                                        <tr class="bg-gray-100 text-gray-700 text-sm text-left">
+                                            <th class="p-3 border-b">Date</th>
+                                            <th class="p-3 border-b">Description</th>
+                                            <th class="p-3 border-b">Amount</th>
+                                            <th class="p-3 border-b">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="hover:bg-gray-50 cursor-pointer transition text-left">
+                                            <td class="p-3 border-b text-sm">May 20</td>
+                                            <td class="p-3 border-b text-sm flex-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, quia.</td>
+                                            <td class="p-3 border-b text-sm">50,959.00</td>
+                                            <td class="p-3 border-b text-sm">
+                                                <span class="text-yellow-500">processing</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50 cursor-pointer transition text-left">
+                                            <td class="p-3 border-b text-sm">May 20</td>
+                                            <td class="p-3 border-b text-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio, totam!</td>
+                                            <td class="p-3 border-b text-sm">60,959.00</td>
+                                            <td class="p-3 border-b text-sm">
+                                                <span class="text-green-500">completed</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50 cursor-pointer transition text-left">
+                                            <td class="p-3 border-b text-sm">May 20</td>
+                                            <td class="p-3 border-b text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, cum!</td>
+                                            <td class="p-3 border-b text-sm">100,959.00</td>
+                                            <td class="p-3 border-b text-sm">
+                                                <span class="text-red-600">failed</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50 cursor-pointer transition text-left">
+                                            <td class="p-3 border-b text-sm">May 20</td>
+                                            <td class="p-3 border-b text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, atque?</td>
+                                            <td class="p-3 border-b text-sm">10,959.00</td>
+                                            <td class="p-3 border-b text-sm">
+                                                <span class="text-gray-500">pending</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                            <!-- <div class="py-4 flex justify-between items-center border-b border-b-gray-200 px-5">
+                                <div>
+                                    <p class="text-gray-800 font-medium">Monthly maintenance fee charged.</p>
+                                    <p class="text-gray-500 text-sm">3 days ago</p>
+                                </div>
+                                <span class="ml-4 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800">Fee</span>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- end of transaction section -->
+            </div>
+        </main>
+
+        <div class="md:hidden block">
+            <div class="fixed left-0 right-0 bottom-0 bg-black h-16 px-5">
+                <div class="w-full flex items-center justify-between text-gray-400 text-[10px] h-full">
+                    <a href="index.html" class="text-white font-medium">Account</a>
+                    <a href="support.html">Support</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

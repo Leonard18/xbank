@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/alpinejs" defer></script>
+        <meta property="og:locale" content="en_US" />
+        <meta name="theme-color" content="#1E3A8A" />
+        <meta name="msapplication-navbutton-color" content="#1E3A8A" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#1E3A8A" />
+        <link rel="mask-icon" href="images/logo.png" color="#1E3A8A">
+        <link rel="apple-touch-icon" type="image/png" href="images/logo.png" />
+        <meta property="og:type" content="content" />
+        <meta property="og:site_name" content="{{ config('app.name') }}" />
+        <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+        <title>Support - XBank</title>
+    </head>
+    <body class="bg-gray-50/90 text-gray-900  pb-20 md:px-0 px-3 relative overflow-x-hidden">
+        <main class="grid grid-cols-1 md:grid-cols-12 gap-10">
+            <div class="lg:col-span-2 md:col-span-1 hidden md:block h-full">
+                <div class="h-full md:overflow-y-hidden bg-black/90 flex flex-col p-5 text-gray-400 space-y-5">
+                    <h2 class="text-xl font-bold">Logo</h2>
+                    <a href="/" class="flex gap-2"><span class="lg:block md:hidden">Home</span> 1</a>
+                    <a href="/support.html" class="flex gap-2 text-white font-medium"><span class="lg:block md:hidden">Support</span> 5</a>
+                </div>
+            </div>
+            <div class="lg:col-span-10 md:col-span-11 md:pr-10 flex flex-col space-y-5">
+                <!-- top section -->
+                <div>
+                    <div class="md:hidden block md:mb-0 mb-10">
+                        <div class="flex items-center justify-between pt-2 bg-black fixed left-0 right-0 top-0 w-full px-5 py-2 z-40">
+                            <h1 class="text-xl font-bold text-gray-200 hover:text-white">Xbank</h1>
+                            <div class="md:hidden flex items-end justify-end space-x-6">
+                                <span class="text-gray-400 hover:text-gray-200">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path fill-rule="evenodd" d="M5.25 9a6.75 6.75 0 0 1 13.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 0 1-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 1 1-7.48 0 24.585 24.585 0 0 1-4.831-1.244.75.75 0 0 1-.298-1.205A8.217 8.217 0 0 0 5.25 9.75V9Zm4.502 8.9a2.25 2.25 0 1 0 4.496 0 25.057 25.057 0 0 1-4.496 0Z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <span class="text-gray-400 hover:text-gray-200">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                        <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div>
+                         <div class="flex items-center justify-between gap-10 border-b border-b-gray-100 pb-3 py-3">
+                             <div>
+                                 <h1 class="md:text-2xl text-xl">Support Center</h1>
+                                 <p class="text-sm text-gray-500 pt-1">Send and receive funds with ease!</p>
+                             </div>
+                             <!-- links section -->
+                             <div class="md:flex hidden items-end justify-end space-x-6 text-gray-700">
+                                 <span>
+                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+                                         <path fill-rule="evenodd" d="M5.25 9a6.75 6.75 0 0 1 13.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 0 1-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 1 1-7.48 0 24.585 24.585 0 0 1-4.831-1.244.75.75 0 0 1-.298-1.205A8.217 8.217 0 0 0 5.25 9.75V9Zm4.502 8.9a2.25 2.25 0 1 0 4.496 0 25.057 25.057 0 0 1-4.496 0Z" clip-rule="evenodd" />
+                                     </svg>
+                                 </span>
+                                 <span>
+                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+                                         <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clip-rule="evenodd" />
+                                     </svg>
+                                 </span>
+                             </div>
+                             <!-- end of links section -->
+                         </div>
+                     </div>
+                 </div>
+                <!-- end of top section  -->
+
+                <!-- content section -->
+                <div class="space-y-10">
+                    <div class="bg-gradient-to-r from-white via-blue-50/50 to-blue-50 md:p-16 p-10 rounded-2xl flex items-center justify-between space-x-5">
+                        <!-- content -->
+                        <div>
+                            <h1 class="lg:text-5xl md:text-4xl text-4xl font-bold text-blue-800">Support & Help!</h1>
+                            <p class="pt-3 md:text-sm text-xs lg:pr-60">Browse our FAQs, open a support ticket, or chat with our support team to get quick answers and personalized help with your account and transactions.</p>
+                        </div>
+
+                        <!-- image -->
+                         <img src="images/support.svg" class="lg:w-60 w-60 h-auto md:block hidden" alt="Support Center">
+                    </div>
+
+                    <div class="md:max-w-4xl m-auto w-full">
+                        <div class="space-y-4">
+                            <h2 class="text-xl font-medium">Get started here</h2>
+                            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 md:gap-5 gap-2">
+                                <div class="p-5 rounded-2xl shade-sm hover:shadow-md bg-white hover:text-white hover:bg-blue-600 flex flex-col items-center justify-center space-y-4">
+                                    <img src="images/mail.svg" class="w-20 h-auto object-contain" alt="Email">
+                                    <div class="text-center">
+                                         <p class="font-medium pb-2">Mail Us</p>
+                                        <p class="md:text-xs text-[10px]">Have questions? Send us an email and our support team will get back to you shortly.</p>
+                                    </div>
+                                </div>
+                                <div class="p-5 rounded-2xl shade-sm hover:shadow-md bg-white hover:text-white hover:bg-blue-600 flex flex-col items-center justify-center space-y-4">
+                                    <img src="images/visit.svg" class="w-20 h-auto object-contain" alt="Email">
+                                    <div class="text-center">
+                                         <p class="font-medium pb-2">Visit Us</p>
+                                        <p class="md:text-xs text-[10px]">Visit Us at our branch for in-person assistance — we’re here to help!</p>
+                                    </div>
+                                </div>
+                                <div class="p-5 rounded-2xl shade-sm hover:shadow-md bg-white hover:text-white hover:bg-blue-600 flex flex-col items-center justify-center space-y-4">
+                                    <img src="images/contact.svg" class="w-20 h-auto object-contain" alt="Email">
+                                    <div class="text-center">
+                                         <p class="font-medium pb-2">Contact Us</p>
+                                        <p class="md:text-xs text-[10px]">Contact Us for prompt support — we’re just a message or call away!</p>
+                                    </div>
+                                </div>
+                                <div class="p-5 rounded-2xl shade-sm hover:shadow-md bg-white hover:text-white hover:bg-blue-600 flex flex-col items-center justify-center space-y-4">
+                                    <img src="images/ticket.svg" class="w-20 h-auto object-contain" alt="Email">
+                                    <div class="text-center">
+                                         <p class="font-medium pb-2">Ticket</p>
+                                        <p class="md:text-xs text-[10px]">Submit a support request and our team will get back to you shortly.</p>
+                                    </div>
+                                </div>
+                                <div class="p-5 rounded-2xl shade-sm hover:shadow-md bg-white hover:text-white hover:bg-blue-600 flex flex-col items-center justify-center space-y-4">
+                                    <img src="images/call.svg" class="w-20 h-auto object-contain" alt="Email">
+                                    <div class="text-center">
+                                         <p class="font-medium pb-2">Call Us</p>
+                                        <p class="md:text-xs text-[10px]">Reach out to our support line for immediate help and inquiries.</p>
+                                    </div>
+                                </div>
+                                <div class="p-5 rounded-2xl shade-sm hover:shadow-md bg-white hover:text-white hover:bg-blue-600 flex flex-col items-center justify-center space-y-4">
+                                    <img src="images/chat.svg" class="w-20 h-auto object-contain" alt="Email">
+                                    <div class="text-center">
+                                         <p class="font-medium pb-2">Live Chat</p>
+                                        <p class="md:text-xs text-[10px]">Chat with our support team in real-time for quick assistance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end of content section -->
+            </div>
+        </main>
+
+        <div class="md:hidden block">
+            <div class="fixed left-0 right-0 bottom-0 bg-black py-3 px-5 h-16">
+                <div class="w-full flex items-center justify-between text-gray-400 text-[10px] h-full">
+                    <a href="index.html">Accounts</a>
+                    <a href="support.html" class="text-white font-medium">Support 5</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
